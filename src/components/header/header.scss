@@ -1,0 +1,11 @@
+.header {
+  @apply bg-green-300;
+  @apply p-4;
+
+  .container {
+    @apply flex;
+    @apply justify-between;
+    @apply items-center;
+    @apply mx-auto;
+  }
+}
