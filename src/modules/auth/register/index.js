@@ -1,3 +1,4 @@
+import { Input, Button } from "ui";
 export function AuthRegister() {
   return (
     <div className="auth-register w-6/12 mx-auto">
@@ -6,31 +7,19 @@ export function AuthRegister() {
         <div className="grid grid-cols-2 gap-4">
           <div>
             <label className="block mb-2">Nombre</label>
-            <input
-              className="border border-gray-400 rounded w-full p-4 focus:border-gray-500 focus:outline-none"
-              type="text"
-            />
+            <Input />
           </div>
           <div>
             <label className="block mb-2">Apellido</label>
-            <input
-              className="border border-gray-400 rounded w-full p-4 focus:border-gray-500 focus:outline-none"
-              type="text"
-            />
+            <Input />
           </div>
           <div>
             <label className="block mb-2">Usuario</label>
-            <input
-              className="border border-gray-400 rounded w-full p-4 focus:border-gray-500 focus:outline-none"
-              type="text"
-            />
+            <Input />
           </div>
           <div>
             <label className="block mb-2">Password</label>
-            <input
-              className="border border-gray-400 rounded w-full p-4 focus:border-gray-500 focus:outline-none"
-              type="password"
-            />
+            <Input type="password" />
           </div>
           <div>
             <label className="block mb-2">Pais</label>
@@ -66,9 +55,7 @@ export function AuthRegister() {
         </div>
         <div className="mt-10">
           <div className="text-center">
-            <button className="p-4 px-10 rounded bg-green-300 text-white">
-              Registrar
-            </button>
+            <Button>Ingresar</Button>
           </div>
         </div>
       </form>
