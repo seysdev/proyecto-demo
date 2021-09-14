@@ -1,3 +1,4 @@
+import "./nav.scss";
 export function Nav() {
   const links = [
     {
