@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import { Header, Footer, Main } from "components";
 import { AuthRegister, AuthLogin } from "modules/auth";
-import { Home } from "modules/home";
+import { Users, UsersUserDetail } from "modules/users/containers";
 import { NotFound } from "modules/notFound";
 
 export function App() {
@@ -22,8 +22,11 @@ export function App() {
             <Route path="/register">
               <AuthRegister />
             </Route>
-            <Route path="/home">
-              <Home />
+            <Route exact path="/users">
+              <Users />
+            </Route>
+            <Route path="/users/:id">
+              <UsersUserDetail />
             </Route>
             {/* <Redirect from="/" to="/home" /> */}
             <Route path="*">

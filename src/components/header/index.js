@@ -6,7 +6,7 @@ export function Header() {
   return (
     <header className="header">
       <div className="container">
-        <Link to={'/home'} className="header__logo">
+        <Link to={'/users'} className="header__logo">
           LOGO
         </Link>
         <div className="flex items-center">
