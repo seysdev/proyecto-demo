@@ -1,0 +1,24 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "sebastian",
+      "lastname": "yabiku"
+    },
+    {
+      "id": 2,
+      "name": "melisa",
+      "lastname": "yabiku"
+    },
+    {
+      "id": 3,
+      "name": "jose",
+      "lastname": "yabiku"
+    },
+    {
+      "id": 4,
+      "name": "cristina",
+      "lastname": "yabiku"
+    }
+  ]
+}

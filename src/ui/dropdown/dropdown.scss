@@ -1,0 +1,10 @@
+.dropdown {
+  @apply relative;
+
+  ul {
+    @apply absolute;
+    background-color: theme("colors.red.200");
+    @apply p-4;
+    @apply rounded-xl;
+  }
+}
