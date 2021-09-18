@@ -2,9 +2,11 @@
   @apply relative;
 
   ul {
+    min-width: 250px;
     @apply absolute;
     background-color: theme("colors.red.200");
     @apply p-4;
     @apply rounded-xl;
+    @apply w-full;
   }
 }

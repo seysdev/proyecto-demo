@@ -14,10 +14,10 @@ export function AuthLogin() {
   });
 
   function existTheUser(users, userLogged) {
-    const currentUser = users.filter((data) => data.user == userLogged.user);
+    const currentUser = users.filter((data) => data.user === userLogged.user);
 
     return new Promise((resolve, reject) => {
-      console.log("currentUser", !!currentUser.length);
+      console.log("currentUser", currentUser);
       !!currentUser.length
         ? resolve(currentUser[0])
         : reject("No existe el usuario");
@@ -34,8 +34,10 @@ export function AuthLogin() {
         return existTheUser(users, userLogged);
       })
       .then((user) => {
-        console.log("user", user.profile.name);
         alert(`Bienvenido!! ${user.profile.name}`);
+        console.log("user", user);
+        localStorage.setItem("user", JSON.stringify(user));
+        window.location.reload();
       })
       .catch((err) => {
         console.log("err", err);
