@@ -42,7 +42,7 @@ export function App() {
               render={() => (userLogged ? <AdminUsers /> : <AuthLogin />)}
             />
             <Route
-              path="/admin/users/edit"
+              path="/admin/users/edit/:id"
               render={() => {
                 return userLogged ? <EditUser /> : <AuthLogin />;
               }}
@@ -52,7 +52,7 @@ export function App() {
               render={() => (userLogged ? <CreateUser /> : <AuthLogin />)}
             />
             <Route
-              path="/admin/users/delete"
+              path="/admin/users/delete/:id"
               render={() => (userLogged ? <DeleteUser /> : <AuthLogin />)}
             />
             <Route path="*">
