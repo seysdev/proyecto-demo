@@ -20,5 +20,27 @@
       "name": "cristina",
       "lastname": "yabiku"
     }
+  ],
+  "usersRegister": [
+    {
+      "id": 1,
+      "user": "admin",
+      "password": "123456",
+      "profile": {
+        "name": "Sebastian",
+        "edad": 32,
+        "sex": "m"
+      }
+    },
+    {
+      "id": 2,
+      "user": "admin2",
+      "password": "123456",
+      "profile": {
+        "name": "Jose",
+        "edad": 32,
+        "sex": "m"
+      }
+    }
   ]
 }
