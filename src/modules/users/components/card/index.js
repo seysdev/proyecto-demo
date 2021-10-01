@@ -17,6 +17,7 @@ export function Card(props) {
         {name}
         {lastname}
       </h2>
+      <img src="https://picsum.photos/800/304/?random" alt="5" />
     </Link>
   );
 }
