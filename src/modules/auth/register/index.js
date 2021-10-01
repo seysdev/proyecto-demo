@@ -2,6 +2,9 @@ import { useState } from "react";
 import { Input, Button } from "ui";
 import { useHistory } from "react-router-dom";
 import { apiBase } from "services/api";
+import FacebookLogin from "react-facebook-login";
+import { GoogleLogin } from "react-google-login";
+import "./register.scss";
 export function AuthRegister() {
   let history = useHistory();
   const [user, setUser] = useState({
@@ -56,6 +59,18 @@ export function AuthRegister() {
     typeClient === "1"
       ? await registerUserClient(user, redirect)
       : await registerUserAdmin(objAdmin, redirect);
+  };
+
+  const responseFacebook = (response) => {
+    console.log("responsefacebook", response);
+  };
+
+  const responseGoogle = (response) => {
+    console.log("respuesta google", response.profileObj);
+  };
+
+  const responseFailedGoogle = (response) => {
+    console.log("responseFailedGoogle", response);
   };
 
   return (
@@ -172,6 +187,25 @@ export function AuthRegister() {
             </select>
           </div>
         </div>
+        <FacebookLogin
+          appId="849324069085202"
+          autoLoad={false}
+          fields="name,email,picture"
+          // onClick={componentClicked}
+          callback={responseFacebook}
+          icon="fa-facebook"
+          textButton="Registrarte con facebook"
+          cssClass="btn-fb"
+        />
+        <GoogleLogin
+          clientId="1054045558021-gugtmq0qncge0pvq0p942e6okfatrnkg.apps.googleusercontent.com"
+          buttonText="Login"
+          onSuccess={responseGoogle}
+          onFailure={responseFailedGoogle}
+          cookiePolicy={"single_host_origin"}
+          buttonText="Registrarte con Gmail"
+          className="btn-gmail"
+        />
         <div className="mt-10">
           <div className="text-center">
             <Button type="submit">Ingresar</Button>

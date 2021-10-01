@@ -4,7 +4,7 @@ export function Button(props) {
   return (
     <button
       type={type}
-      className="p-4 px-10 rounded bg-green-300 text-white"
+      className="p-4 px-10 rounded bg-green-300 text-white w-full"
       onClick={() => cb()}
     >
       {children}

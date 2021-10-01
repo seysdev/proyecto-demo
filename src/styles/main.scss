@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.btn-gmail {
+  width: 100%;
+  justify-content: center;
+  padding: 8px !important;
+  margin-top: 20px;
+}

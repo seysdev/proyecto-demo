@@ -3,8 +3,9 @@ import { useState } from "react";
 import { Button } from "ui";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-
 import { apiBase } from "services/api";
+import FacebookLogin from "react-facebook-login";
+import { GoogleLogin } from "react-google-login";
 
 export function AuthLogin() {
   const {
@@ -61,6 +62,18 @@ export function AuthLogin() {
         alert("El usuario no existe");
       });
     // console.log("data", data);
+  };
+
+  const responseFacebook = (respuesta) => {
+    console.log("respuesta", respuesta);
+  };
+
+  const responseGoogle = (response) => {
+    console.log("respuesta google", response.profileObj);
+  };
+
+  const responseFailedGoogle = (response) => {
+    console.log("responseFailedGoogle", response);
   };
 
   return (
@@ -130,6 +143,25 @@ export function AuthLogin() {
             La longitud maxima es de 6 caracteres
           </span>
         )}
+        <FacebookLogin
+          appId="849324069085202"
+          autoLoad={false}
+          fields="name,email,picture"
+          // onClick={componentClicked}
+          callback={responseFacebook}
+          icon="fa-facebook"
+          textButton="Loguearse con facebook"
+          cssClass="btn-fb"
+        />
+        <GoogleLogin
+          clientId="1054045558021-gugtmq0qncge0pvq0p942e6okfatrnkg.apps.googleusercontent.com"
+          buttonText="Login"
+          onSuccess={responseGoogle}
+          onFailure={responseFailedGoogle}
+          cookiePolicy={"single_host_origin"}
+          buttonText="Loguearse con Gmail"
+          className="btn-gmail"
+        />
 
         <div className="mt-10">
           <div className="text-center">
