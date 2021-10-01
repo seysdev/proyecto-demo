@@ -11,7 +11,7 @@ export function UsersUserDetail() {
     fetch(`http://localhost:3000/users/${idUser}`)
       .then((response) => response.json())
       .then((user) => setUser(user));
-  }, []);
+  }, [idUser]);
 
   return (
     <div>

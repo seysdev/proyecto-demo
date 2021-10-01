@@ -28,6 +28,7 @@
       "password": "123456",
       "profile": {
         "name": "Sebastian",
+        "lastname": "Yabiku",
         "edad": 32,
         "sex": "m"
       }
@@ -38,9 +39,32 @@
       "password": "123456",
       "profile": {
         "name": "Jose",
+        "lastname": "Yabiku",
         "edad": 32,
         "sex": "m"
       }
+    },
+    {
+      "user": "jyabiku",
+      "password": "123456",
+      "profile": {
+        "name": "jose",
+        "lastname": "yabiku",
+        "edad": 32,
+        "sex": "m"
+      },
+      "id": 4
+    },
+    {
+      "user": "csifuentes",
+      "password": "123456",
+      "profile": {
+        "name": "carlos",
+        "lastname": "sifuentes",
+        "edad": 32,
+        "sex": "m"
+      },
+      "id": 5
     }
   ]
 }

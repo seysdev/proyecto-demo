@@ -1,13 +1,17 @@
-import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Nav } from "components/nav";
 import { Dropdown } from "ui";
 import "./header.scss";
+import { useSelector } from "react-redux";
+
 export function Header() {
-  const [userLogged, setUserLogged] = useState({});
-  useEffect(() => {
-    setUserLogged(JSON.parse(window.localStorage.getItem("user")));
-  }, []);
+  const {
+    logged: userLogged,
+    name,
+    lastname,
+  } = useSelector((state) => state.user) || {};
+
+  console.log("stateUser", userLogged);
 
   return (
     <header className="header">
@@ -29,7 +33,7 @@ export function Header() {
           ) : (
             <Dropdown
               className="ml-4"
-              text={`Bienvenido ${userLogged.profile?.name}`}
+              text={`Bienvenido ${name} ${lastname}`}
               links={[
                 { text: "Create User", url: "/admin/users/create" },
                 { text: "Edit User", url: "/admin/users/edit" },

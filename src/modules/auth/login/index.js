@@ -1,17 +1,27 @@
 import { useForm } from "react-hook-form";
 import { useState } from "react";
-import { Input, Button } from "ui";
+import { Button } from "ui";
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
+
+import { apiBase } from "services/api";
+
 export function AuthLogin() {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm();
+
+  const dispatch = useDispatch();
+  let history = useHistory();
+
   const [stateForm, setStateForm] = useState({
     user: "",
     password: "",
   });
+
+  console.log("stateForm", stateForm);
 
   function existTheUser(users, userLogged) {
     const currentUser = users.filter((data) => data.user === userLogged.user);
@@ -28,16 +38,23 @@ export function AuthLogin() {
     // event.preventDefault();
     // console.log("stateForm", stateForm);
 
-    fetch("http://localhost:3000/usersRegister")
-      .then((response) => response.json())
+    apiBase
+      .get("/usersRegister")
       .then((users) => {
-        return existTheUser(users, userLogged);
+        console.log("users", users);
+        return existTheUser(users.data, userLogged);
       })
       .then((user) => {
         alert(`Bienvenido!! ${user.profile.name}`);
         console.log("user", user);
-        localStorage.setItem("user", JSON.stringify(user));
-        window.location.reload();
+        dispatch({
+          type: "SET_USER",
+          payload: {
+            logged: true,
+            ...user.profile,
+          },
+        });
+        history.push("/admin/users");
       })
       .catch((err) => {
         console.log("err", err);
@@ -103,12 +120,12 @@ export function AuthLogin() {
             }
           />
         </div>
-        {errors.password && errors.password.type == "required" && (
+        {errors.password && errors.password.type === "required" && (
           <span className="text-red-800 font-bold">
             El valor es obligatorio
           </span>
         )}
-        {errors.password && errors.password.type == "maxLength" && (
+        {errors.password && errors.password.type === "maxLength" && (
           <span className="text-red-800 font-bold">
             La longitud maxima es de 6 caracteres
           </span>

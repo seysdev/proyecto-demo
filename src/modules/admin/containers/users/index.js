@@ -1,3 +1,14 @@
+const otraConstant = 2;
+function fn(props) {
+    
+  return <div>{props.name}{otraConstant}</div>;
+}
+
 export function AdminUsers() {
-  return <div>Lista de usuarios</div>;
+  const variableuno = 1;
+  return (
+    <div>
+      Lista de usuarios {variableuno} {fn({ name: "sebastian" })} {otraConstant}
+    </div>
+  );
 }
